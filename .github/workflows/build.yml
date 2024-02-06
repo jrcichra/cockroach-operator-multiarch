@@ -42,9 +42,9 @@ jobs:
         env:
           version: ${{ steps.prep.outputs.version }}
       - name: Build amd64 version
-        run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o cockroach-operator-amd64 -v cmd/cockroach-operator/*.go
+        run: cd cockroach-operator && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o cockroach-operator-amd64 -v cmd/cockroach-operator/*.go
       - name: Build arm64 version
-        run: CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o cockroach-operator-arm64 -v cmd/cockroach-operator/*.go
+        run: cd cockroach-operator && CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o cockroach-operator-arm64 -v cmd/cockroach-operator/*.go
       - uses: docker/build-push-action@v5
         with:
           context: .
