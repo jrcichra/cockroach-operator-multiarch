@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/bash:latest
+FROM cockroachdb/cockroach:v23.2.0
 ARG TARGETARCH
-COPY cockroach-operator/cockroach-operator-$TARGETARCH /cockroach-operator
-ENTRYPOINT ["/cockroach-operator"]
+COPY cockroach-operator/cockroach-operator-$TARGETARCH /bin/cockroach-operator
+ENTRYPOINT ["/bin/cockroach-operator"]
