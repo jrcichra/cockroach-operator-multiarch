@@ -1,4 +1,4 @@
-FROM cockroachdb/cockroach:v23.2.0
+FROM cockroachdb/cockroach:v23.2.27
 ARG TARGETARCH
 COPY cockroach-operator/cockroach-operator-$TARGETARCH /bin/cockroach-operator
 ENTRYPOINT ["/bin/cockroach-operator"]
